@@ -1,0 +1,119 @@
+/* General Styles */
+.homepage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: white;
+    font-family: "Poppins", sans-serif;
+    padding: 20px;
+}
+
+/* Title */
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+/* Preview Container */
+.preview-container {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Image Preview */
+.preview-image {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 2px solid white;
+    transition: transform 0.2s ease-in-out;
+}
+
+.preview-image:hover {
+    transform: scale(1.05);
+}
+
+/* Change Image Button */
+.change-image-btn {
+    background-color: #ff8c00;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+    transition: background 0.3s;
+}
+
+.change-image-btn:hover {
+    background-color: #ffa500;
+}
+
+/* Difficulty Selector */
+.difficulty-selector {
+    margin: 15px 0;
+}
+
+.difficulty-slider {
+    width: 100%;
+    max-width: 300px;
+    margin-top: 5px;
+}
+
+/* Start Game Button */
+.start-button {
+    background-color: #28a745;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.start-button:hover {
+    background-color: #218838;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    .preview-image {
+        width: 200px;
+        height: 200px;
+    }
+
+    .start-button, .change-image-btn {
+        font-size: 1rem;
+        padding: 10px 15px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .preview-image {
+        width: 180px;
+        height: 180px;
+    }
+
+    .start-button, .change-image-btn {
+        font-size: 0.9rem;
+        padding: 8px 12px;
+    }
+}

@@ -1,6 +1,6 @@
-import { TILE_COUNT,GRID_SIZE } from "./constants";
 
-export function Solvable(tiles){
+
+export function Solvable(tiles,TILE_COUNT){
     let product=1;
     for(let i=1,l=TILE_COUNT-1;i<=l;i++){
         for(let j=i+1,m=l+1;j<=m;j++){
@@ -19,11 +19,11 @@ export function solved(tiles){
     }
     return true;
 }
-export function getIndex(row,col){
+export function getIndex(row,col,GRID_SIZE){
     return parseInt(row,10)*GRID_SIZE+parseInt(col,10);
 }
 
-export function getMatrixPosition(index){
+export function getMatrixPosition(index,GRID_SIZE){
     return {
         row: Math.floor(index/GRID_SIZE),
         col: index%GRID_SIZE,
@@ -37,14 +37,14 @@ export function getVisualPosition(row,col,width,height){
     };
 }
 
-export function shuffle(tiles){
+export function shuffle(tiles,TILE_COUNT){
     const shuffledtiles= [
         ...tiles
             .filter((t)=> t!==tiles.length -1)
             .sort(()=>Math.random() -0.5),
         tiles.length -1,
     ];
-    return Solvable(shuffledtiles) && !solved(shuffledtiles)?shuffledtiles:shuffle(shuffledtiles);
+    return Solvable(shuffledtiles,TILE_COUNT) && !solved(shuffledtiles)?shuffledtiles:shuffle(shuffledtiles,TILE_COUNT);
 }
 
 export function canSwap(src,dest,GRID_SIZE){

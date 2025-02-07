@@ -1,12 +1,12 @@
 import React from "react";
 // import { Motion, spring } from "motion";
 import { getMatrixPosition, getVisualPosition } from "./helpers";
-import { TILE_COUNT, GRID_SIZE, BOARD_SIZE } from "./constants";
+import {  BOARD_SIZE } from "./constants";
 
 function Tile(arg) {
-    const { tile, index, width, height, handleTileClick, imageurl } = arg;
+    const { tile, index, width, height, handleTileClick, imageurl,TILE_COUNT,GRID_SIZE } = arg;
 
-    const { row, col } = getMatrixPosition(index);
+    const { row, col } = getMatrixPosition(index,GRID_SIZE);
     const visualpos = getVisualPosition(row, col, width, height);
     const tileStyle = {
         width: `calc(100% / ${GRID_SIZE})`,
@@ -29,7 +29,7 @@ function Tile(arg) {
             position: "absolute",  // Ensures tiles are placed in the grid
             top: `${visualpos.y}px`,  // Position tile in the correct row
             left: `${visualpos.x}px`, // Position tile in the correct column
-            background: tile === TILE_COUNT - 1 ? "black" : "#ec6f66", // Hide last tile
+            // background: tile === TILE_COUNT - 1 ? "black" : "black", // Hide last tile
             color: "white",
             display: "flex",
             

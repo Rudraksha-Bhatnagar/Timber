@@ -1,14 +1,20 @@
-import React, {useState,useEffect} from "react";
+import React, { useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import HomePage from "./homepage";
 import Board from "./Board";
-import { div } from "motion/react-client";
-import { updateURLParameter } from "./helpers";
-export default function App(){
-  
+
+export default function App() {
+  const [difficulty, setDifficulty] = useState("medium"); // Default difficulty
+  const [image,setimageurl] = useState("");
   return (
-    <div className="App">
-      <h1>React Sliding puzzle</h1>
-      <Board />
-      
-    </div>
-  )
+    <Router>
+      <div className="App">
+        <h1>React Sliding Puzzle</h1>
+        <Routes>
+          <Route path="/" element={<HomePage setDifficulty={setDifficulty} setimageurl={setimageurl} />} />
+          <Route path="/game" element={<Board difficulty={difficulty} imageurl={image} />} />
+        </Routes>
+      </div>
+    </Router>
+  );
 }
