@@ -5,7 +5,7 @@ import { shuffle, canSwap, swap, solved } from "./helpers";
 import { fetchRandomImage } from "./fetchimage";
 import { useNavigate } from "react-router-dom";
 import  {FaUndo , FaRedo,FaTimes,FaBars } from "react-icons/fa";
-function Board({ difficulty, imageurl }) {
+function Board({ difficulty, imageurl, timerDuration , timerEnabled }) {
     const GRID_SIZE = getgrid(difficulty);
     const TILE_COUNT = gettile(GRID_SIZE);
     const [tiles, setTiles] = useState([...Array(TILE_COUNT).keys()]);
@@ -13,6 +13,9 @@ function Board({ difficulty, imageurl }) {
     const [moves, setmoves] = useState(0);
     const [history,sethistory]=useState([]);
     const [redo,setredo]=useState([]);
+    const [timeLeft, setTimeLeft] = useState(timerDuration);
+    const [gameOver, setGameOver] = useState(false);
+
     console.log('is started', isStarted)
     const shuffletiles = () => {
         const shuffledTiles = shuffle(tiles, TILE_COUNT);
@@ -76,6 +79,18 @@ function Board({ difficulty, imageurl }) {
         setIsstarted(true);
         shuffletiles();
     }, [])
+    useEffect(() => {
+        if (timerEnabled && timeLeft > 0 && !gameOver) {
+            const timer = setInterval(() => {
+                setTimeLeft((prev) => prev - 1);
+            }, 1000);
+            return () => clearInterval(timer);
+        } else if (timeLeft === 0) {
+            setGameOver(true);
+            alert("⏰ Time's Up! Try Again.");
+            handleShuffleClick();
+        }
+    }, [timeLeft, timerEnabled]);
     const Won = solved(tiles);
     useEffect(() => {
         if (Won && isStarted) {
@@ -124,7 +139,10 @@ function Board({ difficulty, imageurl }) {
                     </tbody>
                 </table>
             </div>
+            {timerEnabled && <div className="timer">⏳ Time Left: {timeLeft}s</div>}
             <div className="game-container">
+            
+            
                 <div className="target">
                     <div className="puzzle">
                         <h3>SOLVE</h3>

@@ -41,7 +41,7 @@ function Tile(arg) {
         }}
             className="tile"
             onClick={() => handleTileClick(index)}>
-                {tile+1};
+                
             
             
         </li>
