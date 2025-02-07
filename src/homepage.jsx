@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { fetchRandomImage } from "./fetchimage";
-import { image } from "motion/react-client";
 import "./homepage.css";
 function HomePage({ setDifficulty,setimageurl }) {
     const [selectedDifficulty, setSelectedDifficulty] = useState("medium");
@@ -30,15 +29,15 @@ function HomePage({ setDifficulty,setimageurl }) {
                     alt="Puzzle Preview"
                     style={{ width: "250px", height: "250px", objectFit: "cover", borderRadius: "10px" }}
                 />
-                <button onClick={getnewimage}>🔄 Change Image</button>
+                <button onClick={getnewimage} className="change-image-btn">Change Image</button>
             </div>
-            <label>Select Difficulty:</label>
-            <select value={selectedDifficulty} onChange={(e) => setSelectedDifficulty(e.target.value)}>
-                <option value="easy">Easy (3x3)</option>
-                <option value="medium">Medium (4x4)</option>
-                <option value="hard">Hard (5x5)</option>
+            <label className="difficulty-selector">Select Difficulty:</label>
+            <select value={selectedDifficulty} onChange={(e) => setSelectedDifficulty(e.target.value) } className="difficulty-slider">
+                <option value="easy" className="difficulty-slider">Easy (3x3)</option>
+                <option value="medium" className="difficulty-slider">Medium (4x4)</option>
+                <option value="hard" className="difficulty-slider">Hard (5x5)</option>
             </select>
-            <button onClick={handleStart}>Start Game</button>
+            <button onClick={handleStart} className="start-button">Start Game</button>
         </div>
     );
 }

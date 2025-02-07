@@ -4,12 +4,11 @@ import HomePage from "./homepage";
 import Board from "./Board";
 
 export default function App() {
-  const [difficulty, setDifficulty] = useState("medium"); // Default difficulty
+  const [difficulty, setDifficulty] = useState("medium"); 
   const [image,setimageurl] = useState("");
   return (
     <Router>
       <div className="App">
-        <h1>React Sliding Puzzle</h1>
         <Routes>
           <Route path="/" element={<HomePage setDifficulty={setDifficulty} setimageurl={setimageurl} />} />
           <Route path="/game" element={<Board difficulty={difficulty} imageurl={image} />} />

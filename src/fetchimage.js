@@ -8,7 +8,7 @@ export const fetchRandomImage = async () => {
         const response = await axios.get(BASE_URL, {
             params: {
                 key: API_KEY,
-                q: "nature", // Search query (you can change this)
+                q: "nature", 
                 image_type: "photo",
                 orientation: "square",
                 per_page: 10
@@ -16,7 +16,6 @@ export const fetchRandomImage = async () => {
         });
 
         if (response.data.hits.length > 0) {
-            // Pick a random image from the results
             const randomIndex = Math.floor(Math.random() * response.data.hits.length);
             return response.data.hits[randomIndex].webformatURL;
         }
