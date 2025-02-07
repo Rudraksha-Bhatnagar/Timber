@@ -29,23 +29,25 @@ function Tile(arg) {
             position: "absolute",  // Ensures tiles are placed in the grid
             top: `${visualpos.y}px`,  // Position tile in the correct row
             left: `${visualpos.x}px`, // Position tile in the correct column
-            background: tile === TILE_COUNT - 1 ? "transparent" : "#ec6f66", // Hide last tile
+            background: tile === TILE_COUNT - 1 ? "black" : "#ec6f66", // Hide last tile
             color: "white",
             display: "flex",
+            
             backgroundImage: `url(${imageurl})`,
-            backgroundSize: `${BOARD_SIZE}px`,
+            backgroundSize: `${BOARD_SIZE}px ${BOARD_SIZE}px `,
             backgroundPosition: `${(100 / (GRID_SIZE - 1)) * (tile % GRID_SIZE)}% ${(100 / (GRID_SIZE - 1)) * (Math.floor(tile / GRID_SIZE))}%`,
             backgroundRepeat: "no-repeat",
             justifyContent: "center",
             alignItems: "center",
             fontSize: "20px",
-
+            border:"2px solid black",
             cursor: "pointer",
             transition: "top 0.2s, left 0.2s ease-in-out", // Smooth animation when moving tiles
         }}
             className="tile"
             onClick={() => handleTileClick(index)}>
-            {tile + 1}
+            
+            
         </li>
 
 
