@@ -67,7 +67,7 @@ function HomePage({ setDifficulty, setimageurl, setTimer, Enable }) {
 
                                 </td>
                                 <td>
-                                    <select value={selectedDifficulty} onChange={(e) => setDifficulty(e.target.value) } className="difficulty-slider">
+                                    <select value={selectedDifficulty} onChange={(e) => setSelectedDifficulty(e.target.value) } className="difficulty-slider">
                                         <option value="easy">Easy (3x3)</option>
                                         <option value="medium">Medium (4x4)</option>
                                         <option value="hard">Hard (5x5)</option>
