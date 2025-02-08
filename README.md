@@ -1,6 +1,6 @@
 # 🎮 AI-Powered Sliding Puzzle Game  
 
-An interactive **sliding puzzle game** built with **React** (frontend) and **Node.js/Express** (backend), featuring AI-generated images, a real-time leaderboard, and multiplayer functionality.  
+An interactive **sliding puzzle game** built with **React** (frontend) and featuring AI-generated images, a real-time leaderboard, and multiplayer functionality.  
 
 ## ✨ Features  
 
