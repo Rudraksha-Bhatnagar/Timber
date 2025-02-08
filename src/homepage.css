@@ -55,8 +55,8 @@ h1 {
 }
 
 .preview-image {
-    width: 250px;
-    height: 250px;
+    width: 80%;
+    height: auto;
     object-fit: cover;
     border-radius: 10px;
     border: 2px solid white;
@@ -121,8 +121,8 @@ h1 {
     }
 
     .preview-image {
-        width: 200px;
-        height: 200px;
+        width: 80%;
+        height: auto;
     }
 
     .start-button, .change-image-btn {
@@ -137,8 +137,8 @@ h1 {
     }
 
     .preview-image {
-        width: 180px;
-        height: 180px;
+        width: 80%;
+        height: auto;
     }
 
     .start-button, .change-image-btn {
