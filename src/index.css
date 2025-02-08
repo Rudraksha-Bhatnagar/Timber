@@ -111,6 +111,8 @@ button:disabled {
     position: absolute;
     top: 20px;
     right: 20px;
+    height: 2.5rem;
+    width: 3rem;
     background-color: #ff8c00;
     color: white;
     border: none;
